@@ -1,16 +1,43 @@
-# This is a sample Python script.
+# with open("weather_data.csv") as data_file:
+#     data = data_file.readlines()
+#     print(data)
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# Reading CSV files
 
+# import csv
+#
+# with open("weather_data.csv") as data_file:
+#     data = csv.reader(data_file)
+#     temperature = []
+#     for row in data:
+#         if row[1] != "temp":
+#             temperature.append(int(row[1]))
+#     print(temperature)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# PANDAS Library
 
+import pandas
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+data = pandas.read_csv("weather_data.csv")
+# print(type(data))
+# print(type(data["temp"]))
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# data_dict = data.to_dict()
+# print(data_dict)
+
+temp_list = data['temp'].to_list()
+print(len(temp_list))
+
+average = (sum(temp_list) / len(temp_list))
+print(average)
+
+print(data["temp"].mean())
+
+print(data["temp"].max())
+
+# Get Data In Columns
+
+print(data["condition"])
+
+print(data.condition)
+
